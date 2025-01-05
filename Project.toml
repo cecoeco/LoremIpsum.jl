@@ -1,0 +1,7 @@
+name = "LoremIpsum"
+uuid = "c409abef-1ebc-4f92-b5e2-61753c65b9a9"
+authors = ["Ceco Elijah Maples <mapleselijah9@gmail.com> and Contributors"]
+version = "0.1.0"
+
+[deps]
+HTTP = "cd3eb016-35fb-5094-929b-558a96fad6f3"

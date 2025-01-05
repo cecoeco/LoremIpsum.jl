@@ -1,0 +1,19 @@
+input,
+textarea {
+  font-size: 1rem;
+  color: var(--text-color-1);
+  border: 1px solid var(--border-color);
+  background-color: var(--input-background-color);
+  box-shadow: var(--input-inset-shadow);
+  border-radius: 5px;
+}
+
+::placeholder {
+  color: var(--input-placeholder-color);
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--border-color-focus);
+  box-shadow: var(--border-box-shadow), var(--input-inset-shadow);
+}

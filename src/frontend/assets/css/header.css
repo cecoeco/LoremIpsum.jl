@@ -1,0 +1,75 @@
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  min-height: 50px;
+  max-height: 50px;
+  background-color: var(--background-color-2);
+}
+
+header.scrolled {
+  box-shadow: var(--box-shadow);
+}
+
+.header-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color-1);
+  font-size: 1.25rem;
+  height: 100%;
+  user-select: none;
+  padding: 20px;
+}
+
+.header-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.theme-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  background: none;
+  border: none;
+  border-radius: 50%;
+  box-shadow: none;
+  padding: 10px;
+}
+
+.theme-button:hover {
+  background: var(--active-background-color);
+}
+
+.theme-button:active {
+  background: none;
+  transform: translate(-50%, -50%) scale(0.91);
+}
+
+.theme-button-icon {
+  width: 18px;
+  height: 18px;
+  fill: var(--text-color-1);
+}
+
+.theme-button:hover .theme-button-icon {
+  fill: var(--link-color);
+}
+
+.theme-button:active .theme-button-icon {
+  fill: var(--text-color-1);
+}
+
+.github-button {
+  display: flex;
+  padding: 20px;
+}

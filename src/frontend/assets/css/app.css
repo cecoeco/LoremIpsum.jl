@@ -1,0 +1,126 @@
+:root {
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-feature-settings:
+    "liga" 1,
+    "calt" 1;
+  font-size: 16px;
+  line-height: normal;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  color: var(--text-color-1);
+  background-color: var(--background-color-1);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+html,
+body,
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+html,
+body {
+  height: 100vh;
+}
+
+#root {
+  height: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
+  font-family: "Playfair Display", serif;
+  line-height: 1;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+}
+
+h3 {
+  font-size: 1.6rem;
+}
+
+h4 {
+  font-size: 1.4rem;
+}
+
+h5 {
+  font-size: 1.2rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+a {
+  color: var(--link-color);
+  background-color: transparent;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: fit-content;
+  height: calc(100% - 100px);
+  padding: 20px;
+  gap: 20px;
+}
+
+.lorem-ipsum-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 500px;
+  height: 400px;
+  gap: 10px;
+}
+
+.lorem-ipsum-text {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  line-height: 1.5;
+  padding: 20px;
+  text-align: justify;
+  background-color: var(--input-background-color);
+  box-shadow: var(--input-inset-shadow);
+  overflow: auto;
+}
