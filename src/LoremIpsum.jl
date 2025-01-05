@@ -73,6 +73,4 @@ function app(host::String="0.0.0.0", port::Int=5050; kwargs...)::HTTP.Server
     return HTTP.serve!(ROUTER, host, port; kwargs...)
 end
 
-app()
-
 end # module
