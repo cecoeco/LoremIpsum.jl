@@ -22,7 +22,7 @@ end
 
 const HOST::String = "127.0.0.1"
 const PORT::Int = 5050
-const URL::String = "http://$HOST:$PORT/index.html"
+const URL::String = "http://$HOST:$PORT/"
 
 function startapp()::Bool
     Base.@async begin
