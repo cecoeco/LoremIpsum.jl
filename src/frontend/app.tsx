@@ -22,6 +22,7 @@ const App: React.FunctionComponent = () => {
             Length:
             <input
               type="number"
+              className="lorem-ipsum-length"
               value={length}
               onChange={(e) => setLength(Number(e.target.value))}
             />
