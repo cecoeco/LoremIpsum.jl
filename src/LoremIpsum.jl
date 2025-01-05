@@ -26,7 +26,7 @@ end
 const DIST::String = Base.joinpath(Base.@__DIR__, "dist")
 const ROUTER::HTTP.Router = HTTP.Router()
 
-function app(host::String="0.0.0.0", port::Int=5050; kwargs...)::HTTP.Server
+function app(host::String="0.0.0.0", port::Int=5050; kwargs...)
     HTTP.register!(
         ROUTER,
         "GET",
@@ -70,7 +70,7 @@ function app(host::String="0.0.0.0", port::Int=5050; kwargs...)::HTTP.Server
 
     HTTP.register!(ROUTER, "GET", "/api/{random}/{length}", lorem_ipsum)
 
-    return HTTP.serve!(ROUTER, host, port; kwargs...)
+    return HTTP.serve(ROUTER, host, port; kwargs...)
 end
 
 end # module
