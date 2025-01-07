@@ -21,6 +21,7 @@ const App: React.FunctionComponent = () => {
           <label>
             Length:
             <input
+              name="length"
               type="number"
               className="lorem-ipsum-length"
               value={length}
@@ -30,7 +31,9 @@ const App: React.FunctionComponent = () => {
           <label>
             Random:
             <input
+              name="random"
               type="checkbox"
+              className="lorem-ipsum-random"
               checked={random}
               onChange={(e) => setRandom(e.target.checked)}
             />

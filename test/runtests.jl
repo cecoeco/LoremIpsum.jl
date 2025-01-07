@@ -70,10 +70,38 @@ end
             body::String = String(response.body)
 
             @test response.status == 200
-            @test headers[1] == Pair("Content-Type", "text/html; charset=utf-8")
+            @test headers[1] == Pair("Content-Type", "text/html")
             @test occursin("<title>LoremIpsum.jl</title>", body)
             @test occursin("index.js", body)
             @test occursin("index.css", body)
+            @test occursin("book.svg", body)
+        end
+
+        @testset "index.js" begin
+            response::HTTP.Response = HTTP.get(URL * "index.js")
+            headers::Vector{Pair{String,String}} = response.headers
+            body::String = String(response.body)
+
+            @test response.status == 200
+            @test headers[1] == Pair("Content-Type", "application/javascript")
+        end
+
+        @testset "index.css" begin
+            response::HTTP.Response = HTTP.get(URL * "index.css")
+            headers::Vector{Pair{String,String}} = response.headers
+            body::String = String(response.body)
+
+            @test response.status == 200
+            @test headers[1] == Pair("Content-Type", "text/css")
+        end
+
+        @testset "book.svg" begin
+            response::HTTP.Response = HTTP.get(URL * "book.svg")
+            headers::Vector{Pair{String,String}} = response.headers
+            body::String = String(response.body)
+
+            @test response.status == 200
+            @test headers[1] == Pair("Content-Type", "image/svg+xml")
         end
     finally
         @test stopapp() || return nothing
@@ -83,7 +111,37 @@ end
 @testset "api" begin
     @test startapp() || return nothing
     try
-        #TODO: add more test for the REST API
+        @testset "GET /api/false/100" begin
+            response::HTTP.Response = HTTP.get(URL * "api/false/100")
+            headers::Vector{Pair{String,String}} = response.headers
+            body::String = String(response.body)
+
+            @test response.status == 200
+            @test headers[1] == Pair("Content-Type", "text/plain")
+            @test occursin("Lorem ipsum dolor sit amet", body)
+            @test length(body) == 100
+        end
+
+        @testset "GET /api/true/50" begin
+            response::HTTP.Response = HTTP.get(URL * "api/true/50")
+            headers::Vector{Pair{String,String}} = response.headers
+            body::String = String(response.body)
+
+            @test response.status == 200
+            @test headers[1] == Pair("Content-Type", "text/plain")
+            @test length(body) == 50
+        end
+
+        @testset "GET /api/false/500" begin
+            response::HTTP.Response = HTTP.get(URL * "api/false/500")
+            headers::Vector{Pair{String,String}} = response.headers
+            body::String = String(response.body)
+
+            @test response.status == 200
+            @test headers[1] == Pair("Content-Type", "text/plain")
+            @test occursin("Lorem ipsum dolor sit amet", body)
+            @test length(body) == min(500, length(LoremIpsum.LOREM_IPSUM))
+        end
     finally
         @test stopapp() || return nothing
     end

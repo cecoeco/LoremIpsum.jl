@@ -22,7 +22,7 @@ button:hover {
 }
 
 button:active {
-  transform: scale(0.91);
+  transform: scale(0.97);
   background: var(--button-background-color-2);
   box-shadow: none;
 }
